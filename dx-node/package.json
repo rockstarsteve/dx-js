@@ -1,0 +1,8 @@
+{
+  "name": "dx-node",
+  "version": "1.0.0",
+  "description": "测试",
+  "main": "test01.js",
+  "author": "rockstarsteve",
+  "license": "MIT"
+}

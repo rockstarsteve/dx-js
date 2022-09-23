@@ -1,3 +1,44 @@
-<script>
-alert("我的第一个 JavaScript");
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+     $('#btnScore').bind('click',function(){
+           var score = $('#txtScore').val();
+              var reg = /^[0-9]+.?[0-9]*$/
+           if (!reg.test(score)) {
+              alert('请输入合法的数字！');
+              return false;
+           }
+           calcScore(score);
+          }) 
+   });
+    function calcScore(score){
+      switch(false){  //不能写switch(score)，因为表达式值为bool类型
+       case score > 90  && score <= 100:
+         alert('优');
+         break;
+       case score > 80 && score <= 90:
+         alert('良');
+         break;
+       case score > 59 && score <= 80:
+         alert('及格');
+         break;
+       case score > -1 && score <= 59:
+         alert('不及格');
+         break;
+       default:
+         alert('输入分值范围错误！');
+         break;
+     }
+   }
+ </script>
+</head>
+<body>
+    <label for='txtScore'>分值：</label><input id='txtScore' type='text'>
+    <input id='btnScore' type='button' value='评分' />
+</body>
+</html>

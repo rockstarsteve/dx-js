@@ -1,0 +1,44 @@
+<script>
+    //可以进行回调嵌套
+
+    // const p = msg => new Promise((reolve,reject)=>{
+    //     setTimeout(() => {
+    //         console.log("传入要处理的数据是",msg)
+    //         reolve("你传入的数据是："+msg)
+    //     }, 3000);
+    // })
+    // console.log(p(1))
+
+    // async function q(msg){
+    //     const res = await p(msg);
+    //     console.log("处理后要返回的数据是", res)
+    //     return res;
+    // }
+
+    // console.log("q()的返回结果是：",q("good"))
+
+    //async+awite只能处理正常的逻辑，如果是异常需要用try catch处理
+
+    const p2 = msg => new Promise((reolve,reject)=>{
+        setTimeout(() => {
+            console.log("传入要处理的数据是",msg)
+            reject("调用错误！！")
+        }, 3000);
+    })
+    // console.log(p2(1))
+
+    async function q2(msg){
+        let res;
+        try {
+            res = await p2(msg);
+        } catch (error) {
+            console.log("处理的数据有异常", error)
+        }
+        return res;
+    }
+
+    q2("bad");
+
+
+
+</script>

@@ -1,7 +1,7 @@
-
-
 <script>
     /**
+     * 类型
+     * 
      * 在JavaScript中包含六种基本数据类型，分别为：
      * 1、字符串（String）类型；
      * 2、数字（Number）类型；
@@ -25,11 +25,15 @@
     var b = true;
     var nu = null;
     var unde;
-    var obj={"name":"xiaoming","sex":"nan"};
+    var obj = { "name": "xiaoming", "sex": "nan" };
+    var fun = function myFunction() {
+        alert("Hello World!");
+    }
     alert(typeof str)//返回"String"
     alert(typeof num)//返回"Number"
     alert(typeof b)//返回"Boolean"
     alert(typeof nu)//返回"Null"  js的问题
     alert(typeof unde)//返回"Undefined"
     alert(typeof obj)//返回"obj"
+    alert(typeof fun)//返回"function"
 </script>

@@ -1,0 +1,28 @@
+<script>
+    var p = new Promise(function (resolve, reject) {
+        resolve();
+    });
+    function taskA() {
+        console.log("Task A");
+    }
+    function taskB() {
+        console.log("Task B");
+    }
+    function taskC() {
+        console.log("Task C");
+    }
+    p.then(taskA())
+        .then(taskB())
+        .then(
+            function () {
+                throw new Error("My Error")
+            }
+        )
+        .then(taskC())
+        .then(
+            console.log("my task")
+        )
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>

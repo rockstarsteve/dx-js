@@ -1,0 +1,18 @@
+<script>
+
+    //resolve的回调数据在then中接收
+    //reject的回调数据在catch中接收
+
+    const p = new Promise((resolve,reject)=>{
+        setTimeout(function(){
+            reject("ok")
+        },3000)
+    });
+
+    p.then(msg=>{
+        console.log("正确的返回数据",msg)
+    }).catch(error =>{
+        console.log("错误的返回数据", error)
+    })
+
+</script>

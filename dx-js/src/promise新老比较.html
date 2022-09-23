@@ -1,0 +1,34 @@
+<script>
+
+    //以前的异步操作写法
+    const sucess = msg => console.log(msg)
+    const fail = msg => console.log(msg)
+
+    const wait = (wait,sucess,fail) =>{
+        setTimeout(() => {
+            if(true){
+                sucess('sucess')
+            }else{
+                fail('fail')
+            }
+        }, wait);
+    }
+    wait(2000,sucess,fail)
+
+    //回调地狱，代码可读性差，上一个执行完成后才执行下一个
+    //避免回调地狱，可读性高，可以一次性捕获异常处理，可以进行链式操作
+
+
+    const wait2 =  msg => new Promise((resolve,reject) =>{
+        setTimeout(reject,msg)
+    })
+
+    wait2(4000).then(()=>{
+        console.log("sucess")
+    }).catch(()=>{
+        console.log("fail")
+    })
+
+
+    
+</script>

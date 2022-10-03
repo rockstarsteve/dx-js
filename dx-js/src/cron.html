@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    //定时任务
+
+    //setInterval()
+    //clearInterval() 方法用于停止 setInterval() 方法执行的函数代码。
+    var myVar = setInterval(() => myTimer(), 1000);
+    function myTimer() {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        console.log(t)
+    }
+    function myStopFunction() {
+        clearInterval(myVar);
+    }
+
+    //setTimeout()
+    //clearTimeout() 方法用于停止执行setTimeout()方法的函数代码。
+    var myVar2 = setTimeout(function () { console.log("Hello") }, 3000);
+
+    function myStopFunction2() {
+        clearTimeout(myVar2);
+    }
+
+</script>
+
+<body>
+    <button onclick="myStopFunction()">停止setInterval</button>
+    <button onclick="myStopFunction2()">停止setTimeout</button>
+</body>
+
+</html>

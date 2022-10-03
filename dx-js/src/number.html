@@ -1,0 +1,48 @@
+<script>
+    //整数（不使用小数点或指数计数法）最多为 15 位。
+    var x = 999999999999999;   // x 为 999999999999999
+    var y = 9999999999999999;  // y 为 10000000000000000
+    var z = 99999999999999999;  // y 为 100000000000000000
+
+    console.log("x:", x)
+    console.log("y:", y)
+    console.log("z:", z)
+
+    //小数的最大位数是 17，但是浮点运算并不总是 100% 准确：
+    var x1 = 0.2 + 0.1; // 输出结果为 0.30000000000000004
+    console.log("x1:", x1)
+
+    //如果前缀为 0，则 JavaScript 会把数值常量解释为八进制数，如果前缀为 0 和 "x"，则解释为十六进制数。
+    var y2 = 0377;
+    var z2 = 0xFF;
+    console.log("y2:", y2)
+    console.log("z2:", z2)
+
+
+    //默认情况下，JavaScript 数字为十进制显示。
+    //但是你可以使用 toString() 方法 输出16进制、8进制、2进制。
+    var myNumber = 128;
+    console.log(myNumber.toString(16));   // 返回 80
+    console.log(myNumber.toString(8));    // 返回 200
+    console.log(myNumber.toString(2));    // 返回 10000000
+
+    //无穷大（Infinity）
+    myNumber2 = 2;
+    while (myNumber2 != Infinity) {
+        myNumber2 = myNumber2 * myNumber2; // 重复计算直到 myNumber 等于 Infinity
+        console.log(myNumber2)
+    }
+
+    //
+    var x5 = 123;
+    var y5 = new Number(123);
+    console.log("y5:", y5);
+    //在Number对象中的构造函数内定义了一些数据，可以在Prototype中的constructor看到
+    console.log(Number.MAX_VALUE)
+    // 为 false，因为 x 是一个数字，y 是一个对象
+    console.log((x5 === y5));
+
+    var result = Number.parseFloat("32.01");
+    console.log("result", result)
+
+</script>

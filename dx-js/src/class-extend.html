@@ -1,0 +1,26 @@
+<script>
+    class Site {
+        constructor(name) {
+            console.log("父类构造器")
+            this.sitename = name;
+        }
+        present() {
+            return '我喜欢' + this.sitename;
+        }
+    }
+
+    class Runoob extends Site {
+        constructor(name, age) {
+            console.log("子类构造器")
+            super(name);
+            this.age = age;
+        }
+        show() {
+            return this.present() + ', 它创建了 ' + this.age + ' 年。';
+        }
+    }
+
+    let noob = new Runoob("菜鸟教程", 5);
+    console.log("noob.show():", noob.show())
+
+</script>

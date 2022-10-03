@@ -1,0 +1,26 @@
+<script>
+
+    //Date一般定义
+    const date = new Date();
+    console.log("date", date)
+    console.log("date.getDate()", date.getDate())
+    console.log("date.getFullYear()", date.getFullYear())
+    console.log("date.getMonth()", date.getMonth())
+    console.log("date.getDay()", date.getDay())
+
+    //Date()getTime()getFullYear()
+    const date2 = Date();
+    console.log("Date():", date2)
+
+    //日期对象也可用于比较两个日期。
+    var x = new Date();
+    x.setFullYear(2022, 0, 14);
+    var today = new Date();
+    if (x > today) {
+        console.log("今天是2022年1月14日之前");
+    }
+    else {
+        console.log("今天是2022年1月14日之后");
+    }
+
+</script>

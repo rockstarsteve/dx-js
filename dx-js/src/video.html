@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Video.js | HTML5 Video Player</title>
+    <link href="http://vjs.zencdn.net/7.0/video-js.min.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/7.0/video.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <video id="demo-video" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+        poster="http://vjs.zencdn.net/v/oceans.png" data-setup="{}">
+        <source id="demo" src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+    </video>
+    观看时长：<input type="text" id="aa" value="0">
+    当前时间：<input type="text" id="bb" value="0">
+    是否正在播放视频：<input type="text" id="cc" value="0">
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        var options = {
+        };
+        var player = videojs('demo-video', options, function onPlayerReady() {
+            var time1;
+            var t1 = 0;
+            function aa() {
+                t1 += 0.1;
+                document.getElementById('aa').value = t1;
+                console.log('aa-' + t1);
+                var currentTime = document.getElementById("demo-video").firstChild.currentTime;
+                document.getElementById('bb').value = currentTime;
+                console.log('当前播放时间' + currentTime);
+            }
+            //结束和暂时时清除定时器，并向后台发送数据
+            this.on('ended', function () {
+                console.log('结束播放');
+                window.clearInterval(time1);
+                countTime();   //向后台发数据
+            });
+            this.on('pause', function () {
+                console.log('暂停播放');
+                window.clearInterval(time1);
+                countTime();  //向后台发数据
+            });
+            this.on('ended', function () {//播放结束
+                console.log("播放结束");
+                window.clearInterval(time1);
+            });
+            this.on('waiting', function () {
+                console.log('等待加载');
+                window.clearInterval(time1);
+                countTime();   //向后台发数据
+            })
+            //开始播放视频时，设置一个定时器，每100毫秒调用一次aa(),观看时长加1秒
+            this.on('playing', function () {
+                console.log('开始播放');
+                time1 = setInterval(function () {
+                    aa();
+                }, 100);
+            });
+        });
+        //直接关闭页面，并向后台发送数据
+        if (window.addEventListener) {
+            window.addEventListener("beforeunload", countTime, false);
+        } else {
+            window.attachEvent("onbeforeunload", countTime);
+        }
+    })
+
+    function countTime() {
+        var sTime = $("#aa").val();
+        var currentTime = $("#bb").val();
+        console.log(sTime + '==' + currentTime + '发往后台');
+    }
+
+
+
+    // 用来监控video的代码
+    var lastTime = 0;
+    var videoTime = setInterval(function () {
+        var currentTime = document.getElementById("demo-video").firstChild.currentTime;
+        console.log("当前播放的时间是:" + currentTime)
+        if (currentTime == videoTime) {
+            document.getElementById('cc').value = "没有播放";
+        } else {
+            document.getElementById('cc').value = "正在播放";
+        }
+        videoTime = currentTime;
+    }, 100);
+
+    videoTime();
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<script>
+    /**
+     * Window 尺寸
+     *有三种方法能够确定浏览器窗口的尺寸。
+     *对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：
+     *window.innerHeight - 浏览器窗口的内部高度(包括滚动条)
+     *window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)
+     *对于 Internet Explorer 8、7、6、5：
+     *document.documentElement.clientHeight
+     *document.documentElement.clientWidth
+     */
+    var w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+
+    var h = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+    console.log("w", w)
+    console.log("h", h)
+
+    //全局变量不能通过 delete 操作符删除；而 window 属性上定义的变量可以通过 delete 删除
+    var num = 123;
+    window.str = "string";
+    delete num;
+    delete str;
+    console.log(num); //123
+    console.log(str); //str is not defined
+
+</script>

@@ -1,0 +1,54 @@
+<script>
+    class Runoob {
+        constructor(name, url) {
+            this.name = name;
+            this.url = url;
+            console.log("调用了构造方法。。。")
+        }
+    }
+
+
+    //可以用类的构造器构造
+    let site = new Runoob("菜鸟教程", "https://www.runoob.com");
+
+    console.log("site:", site)
+    console.log("site.name", site.name)
+    console.log("site.url", site.url)
+
+    //就算有其他构造器，无参构造函数也能使用
+    let site2 = new Runoob();
+    console.log("site2:", site2)
+    console.log("site2.name", site2.name)
+    console.log("site2.url", site2.url)
+    site2.name = "百度";
+    site2.url = "https://www.baidu.com";
+    console.log("site2:", site2)
+    console.log("site2.name", site2.name)
+    console.log("site2.url", site2.url)
+
+
+
+    /*  类可以匿名也可以不匿名
+    
+    // 未命名/匿名类
+     let Runoob = class {
+         constructor(name, url) {
+             this.name = name;
+             this.url = url;
+         }
+     };
+     console.log(Runoob.name);
+     // output: "Runoob"
+ 
+     // 命名类
+     let Runoob = class Runoob2 {
+         constructor(name, url) {
+             this.name = name;
+             this.url = url;
+         }
+     };
+     console.log(Runoob.name);
+ // 输出: "Runoob2" 
+ 
+ */
+</script>

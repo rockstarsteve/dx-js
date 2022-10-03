@@ -1,0 +1,22 @@
+<script>
+    class Runoob {
+        constructor(name) {
+            this.name = name;
+        }
+        static hello() {
+            return "Hello!!";
+        }
+    }
+
+    let noob = new Runoob("菜鸟教程");
+
+    // 可以在类中调用 'hello()' 方法
+    console.log(Runoob.hello())
+    // console.log(noob.hello())
+
+// 不能通过实例化后的对象调用静态方法
+// document.getElementById("demo").innerHTML = noob.hello();
+// 以上代码会报错  (noob.hello is not a function)
+
+
+</script>

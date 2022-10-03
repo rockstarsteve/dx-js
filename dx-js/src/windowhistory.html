@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <head>
+        <script>
+            //history.back() - 与在浏览器点击后退按钮相同
+            //history.forward() - 与在浏览器中点击向前按钮相同
+            //除此之外可以用 history.go() 这个方法来实现向前，后退的功能。
+            function goBack() {
+                window.history.back()
+            }
+            function goForward() {
+                window.history.forward()
+            }
+            // go() 里面的参数表示跳转页面的个数 例如 history.go(1) 表示前进一个页面
+            function a() {
+                history.go(1);
+            }
+            // go() 里面的参数表示跳转页面的个数 例如 history.go(-1) 表示后退一个页面
+            function b() {
+                history.go(-1);
+            }
+            // go() 里面的参数为0,表示刷新页面
+            function a() {
+                history.go(0);
+            }
+        </script>
+    </head>
+
+<body>
+
+    <input type="button" value="Back" onclick="goBack()">
+
+</body>
+
+</html>

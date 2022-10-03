@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        //下面都是阻塞的
+        //警告框
+        function myFunction() {
+            alert("你好，我是一个警告框！");
+        }
+
+        //确认框
+        var r = confirm("按下按钮");
+        if (r == true) {
+            console.log("你按下了\"确定\"按钮!")
+        }
+        else {
+            console.log("你按下了\"取消\"按钮!")
+        }
+
+        //提示框
+        var person = prompt("请输入你的名字", "Harry Potter");
+        if (person != null && person != "") {
+            console.log("你好 " + person + "! 今天感觉如何?")
+        }       
+    </script>
+</head>
+
+<body>
+
+    <input type="button" onclick="myFunction()" value="显示警告框">
+
+</body>
+
+</html>
